@@ -2,35 +2,75 @@
 <!DOCTYPE html>
 <html leng="fr">
     <head> 
-        <link rel="stylesheet" href="style.css">
-        <script>
+      <!-- Début du code en Javascript-->
+       <script>
+         // Fonction qui affiche la valeur
             function afficher(val)
             { 
-                document.getElementById("entrée").value += val; 
+                document.getElementById("entr?e").value += val; 
             } 
+          // Fonction qui efface la valeur
             function effacer(){
-                document.getElementById("entrée").value = ""; 
+                document.getElementById("entr?e").value = ""; 
             }
+            // Fonction qui calcule la valeur
             function calculer() 
             { 
-             let a = document.getElementById("entrée").value 
+             let a = document.getElementById("entr?e").value 
              let b = eval(a) 
-             document.getElementById("entrée").value = b 
+             document.getElementById("entr?e").value = b 
              }
-            
-
-
-
-        </script>
+             // fonction qui affiche une pop-up une fois sur le site
+			  function popup(){ 
+             alert("Bienvenue sur le site de ma calculatrice !");
+             } 
+             // Fonction qui donne une couleur de fond à l'écran
+            function couleur(x) {
+            x.style.background = "#87CEFA";
+            } 
+            // Fonction qui averti que tu as utilisé une touche du clavier
+			  function evenement_clavier() 
+            {
+             alert("Tu as appuyer sur une touche clavier, utilise les touches du site plutot ");
+            }
+            // Fonction qui donne la couleur de fond une fois la souris sur la touche
+			 function couleur_bouton1(x) 
+            {
+            x.style.background = "#B8D7F5";
+            }
+            // Fonction qui laisse une couleur de touche une fois que la souris n'est plus sur la touche la touche 
+			 function couleur_bouton2(x) 
+            {
+            x.style.background = "#FEFEE2";
+            }         
+         </script>
+		 <style>
+		 table{
+		 text-align: center;
+        width: 100px;
+        margin: 0 auto;
+         }
+		 button{
+		 width: 100%;
+     padding: 32px 64px;
+		 }
+     h1{
+      text-align: center;
+     }
+     input{
+     padding: 32px 192px;
+     }
+      </style>
     </head> 
-    <body> 
+    <body onload = popup()>
+      <h1>Calculatrice de Quentin HEITZ</h1>
         <div>
             <table border="1"> 
               <tr> 
-                <td colspan="3"><input id="entrée"></td> 
+                <td colspan="3"><input onfocus="couleur(this)" id="entr?e" onkeyup= "evenement_clavier()"></td> 
                 <td><button onclick="effacer()">c</button></td> 
               </tr>
-<tr> 
+			  <tr> 
                 <td><button onclick="afficher('1')">1</button></td> 
                 <td><button onclick="afficher('2')">2</button></td> 
                 <td><button onclick="afficher('3')">3</button></td> 
@@ -38,15 +78,15 @@
               </tr>
               <tr>
                 <td><button onclick="afficher('4')">4</button></td> 
-                <td><button onclick="afficher('5')">5</button></td> 
+                <td><button onmouseenter="couleur_bouton1(this)" onmouseleave="couleur_bouton2(this)" onclick="afficher('5')">5</button></td> 
                 <td><button onclick="afficher('6')">6</button></td> 
                 <td><button onclick="afficher('-')">-</button></td>
               </tr>
               <tr>
-                <td><button onclick="afficher('4')">7</button></td> 
-                <td><button onclick="afficher('5')">8</button></td> 
-                <td><button onclick="afficher('6')">9</button></td> 
-                <td><button onclick="afficher('')"></button></td>
+                <td><button onclick="afficher('7')">7</button></td> 
+                <td><button onclick="afficher('8')">8</button></td> 
+                <td><button onclick="afficher('9')">9</button></td> 
+                <td><button onclick="afficher('*')">*</button></td>
               </tr>
               <tr>
                 <td><button onclick="afficher('.')">.</button></td> 
@@ -58,5 +98,3 @@
         </div>
     </body> 
 </html>
-
-
